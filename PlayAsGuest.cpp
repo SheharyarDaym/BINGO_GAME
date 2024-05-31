@@ -208,21 +208,9 @@ BingoGuest::BingoGuest()
 
     system("cls");
     colorGreen();
-    cout << "\t\t\t   ----------------WELCOME TO BINGO----------------" << endl << endl << endl;
-    // colorBurgundy();
-    // cout << "\t\t\t\t\t\t   +------+" << endl; 
-    // colorGreen();
-    // cout << "\t\t\t\t\t  ["; colorWHITE(); cout << "3"; 
-    // colorGreen(); cout << "]";
-    // colorBurgundy();
-    // cout << "\t   |"; colorRed(); cout <<" EXIT "; colorBurgundy(); cout << "|" << endl;
-    // cout << "\t\t\t\t\t\t   +------+" << endl << endl;
-    // colorWHITE();
-    
-
+    cout << "\t\t\t   ----------------WELCOME TO BINGO----------------" << endl << endl << endl; 
 
     PlayGame();
-    
 
 
 }
@@ -434,6 +422,7 @@ void BingoGuest::PlayGame()
                 calledNumbers.erase(calledNumbers.begin() + ranIndex);
                 break; 
             }
+            Beep(1000, 250);
             pressAnyKeyToContinue();
             system("cls");
             colorYellow();
@@ -506,6 +495,7 @@ void BingoGuest::PlayGame()
             // cout << "BINGO STOP" << endl;
             cout << endl
                  << endl;
+            system("cls");
             colorGreen();
 
             cout << "YOUR'S BINGO CARD " << endl;
@@ -535,6 +525,7 @@ void BingoGuest::PlayGame()
             // cout << "BINGO STOP" << endl;
             cout << endl
                  << endl;
+            system("cls");
             colorGreen();
 
             cout << "YOUR'S BINGO CARD " << endl;
@@ -564,6 +555,7 @@ void BingoGuest::PlayGame()
             // cout << "BINGO STOP" << endl;
             cout << endl
                  << endl;
+            system("cls");
             colorGreen();
 
             cout << "YOUR'S BINGO CARD " << endl;
@@ -586,12 +578,6 @@ void BingoGuest::PlayGame()
             break;
         }
 
-        // if(i==24 && checkBingo(matrix1) == false && checkBingo(matrix2) == false){
-        //     beepDelay();
-        //     colorGREEN();
-        //     cout << "------------END NO ONE WIN------------" << endl;
-        //     colorWHITE();
-        // }
     }
 }
 
