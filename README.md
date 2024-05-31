@@ -18,5 +18,5 @@ number (from 1 to 25). The selected number will be marked off on both your bingo
 3- In the event of a computer win (you lose), the score will still be displayed.
 Have fun playing!!!!!!!
 
-                                                                                                    Best regards,
-                                                                                                    Sheharyar Daym
+Best regards,
+Sheharyar Daym
