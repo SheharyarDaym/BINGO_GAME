@@ -695,6 +695,7 @@ void Bingo::PlayGame()
                 calledNumbers.erase(calledNumbers.begin() + ranIndex);
                 break; 
             }
+            Beep(1000, 250);
             pressAnyKeyToContinue();
             system("cls");
             colorYellow();
@@ -767,8 +768,8 @@ void Bingo::PlayGame()
             // cout << "BINGO STOP" << endl;
             cout << endl
                  << endl;
+            system("cls");
             colorGreen();
-
             cout << "YOUR'S BINGO CARD " << endl;
             display(matrix1);
             colorYellow();
@@ -799,6 +800,7 @@ void Bingo::PlayGame()
             // cout << "BINGO STOP" << endl;
             cout << endl
                  << endl;
+            system("cls");
             colorGreen();
 
             cout << "YOUR'S BINGO CARD " << endl;
@@ -833,6 +835,7 @@ void Bingo::PlayGame()
             // cout << "BINGO STOP" << endl;
             cout << endl
                  << endl;
+            system("cls");
             colorGreen();
 
             cout << "YOUR'S BINGO CARD " << endl;
@@ -857,12 +860,6 @@ void Bingo::PlayGame()
             break;
         }
 
-        // if(i==24 && checkBingo(matrix1) == false && checkBingo(matrix2) == false){
-        //     beepDelay();
-        //     colorGREEN();
-        //     cout << "------------END NO ONE WIN------------" << endl;
-        //     colorWHITE();
-        // }
     }
 }
 
@@ -880,7 +877,7 @@ void Bingo::displayLoadingBar()
         {
             Sleep(100);
 
-            cout << "\r[Loading] [" << std::string(20, ' ') << "] ";
+            cout << "\r[Loading] [" << string(20, ' ') << "] ";
             cout.flush();
         }
         progress += 3;
