@@ -292,7 +292,8 @@ void UserManager::loadAndDisplayLeaderboard()
     colorRed();
     cout << "\t\t\t\t\tT o p   3  S c o r e s" << endl << endl;
     colorGreen();
-    for (int i = 0; i < 3 && i < users.size(); ++i)
+    int n = users.size();
+    for (int i = 0; i < 3 && i < n; ++i)
     {
         cout << "\t\t\t\t\t" << i + 1 << ". " << users[i].username << " - " << users[i].score << endl << endl;
     }
