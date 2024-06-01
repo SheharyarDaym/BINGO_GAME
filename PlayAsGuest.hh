@@ -54,8 +54,6 @@ protected:
 
     void RandomNumberGenerator(int* arr);
 
-    void displayC(int arr[][5]);
-
     void display(int arr[][5]);
     void delay();
 
