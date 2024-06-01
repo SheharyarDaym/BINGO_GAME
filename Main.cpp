@@ -54,10 +54,6 @@ int main()
     int choice;
     do
     {
-        // cout << "1. Login\n"; // Login function should be implemented similarly to signUp
-        // cout << "2. Signup\n";
-        // cout << "3. View Leaderboard\n";
-        // cout << "4. Exit\n";
         display();
         cout << "Enter choice: ";
         integerValidation(choice);
@@ -65,7 +61,6 @@ int main()
         if(choice == 1){
             system("cls");
             //userManager.logIn(); // Implement login functionality
-            // Bingo b;
             Bingo b;
         }
         else if(choice == 2){
@@ -109,8 +104,6 @@ int main()
 
     return 0;
 }
-
-
 
 
 
@@ -243,29 +236,29 @@ void pressAnyKeyToContinue() {
 
 // Input Validation
 int integerValidation(int &number)
+{
+    bool validInput = false;
+    while (!validInput)
     {
-        bool validInput = false;
-        while (!validInput)
+        if (cin >> number)
         {
-            if (cin >> number)
-            {
-                if (number>=1 && number<=6)
-                    validInput = true;
-                else
-                cout << "Please Enter number from (1-6)" << endl;
-                    
-            }
-            
+            if (number>=1 && number<=6)
+                validInput = true;
             else
-            {
-                cin.clear();
-                while (cin.get() != '\n')
-                    ;
-                cout << "Invalid input. Please enter a valid number." << endl;
-            }
+            cout << "Please Enter number from (1-6)" << endl;
+                
         }
-        return number;
+        
+        else
+        {
+            cin.clear();
+            while (cin.get() != '\n')
+                ;
+            cout << "Invalid input. Please enter a valid number." << endl;
+        }
     }
+    return number;
+}
 
 
 
