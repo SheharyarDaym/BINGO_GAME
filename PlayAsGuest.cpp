@@ -6,9 +6,11 @@
 
 void BingoGuest::pressAnyKeyToContinue()
 {
+    colorYellow();
     cout << "Press any key to continue...";
     _getch();  
     cout << endl;  
+    colorWHITE();
 }
 
 int BingoGuest::integerValidation(int &number)
@@ -95,7 +97,7 @@ void BingoGuest::RandomNumberGenerator(int* arr)
 }
 
 
-void BingoGuest::displayC(int arr[][5])
+void BingoGuest::display(int arr[][5])
 {
     for(int i=0; i<5; i++) {
         cout << "\t\t\t\t\t";
@@ -116,28 +118,11 @@ void BingoGuest::displayC(int arr[][5])
     }
 }
 
-void BingoGuest::display(int arr[][5])
-{
-    for(int i=0; i<5; i++) {
-        cout << "\t\t\t\t\t";
-        for(int j=0; j<5; j++){
-            if(arr[i][j] == 0){
-                colorRed();
-                cout << setw(4) << right << "X";
-                colorWHITE();
-            }
-            else{
-                colorCyan();
-                cout << setw(4) << right << arr[i][j];
-                colorWHITE();
-            } 
-        }
-        cout << endl << endl;
-    }
-}
+
 
 void BingoGuest::delay()
 {
+    colorGreen();
     cout << "Loading";
     for (int i = 0; i < 3; i++)
     {
@@ -145,6 +130,7 @@ void BingoGuest::delay()
         Sleep(500);
     }
     cout << endl;
+    colorWHITE();
 }
 
 void BingoGuest::beepDelay(){
@@ -283,7 +269,7 @@ void BingoGuest::PlayGame()
         {
             int calling;
             colorPink();
-            cout << "Call number: ";
+            cout << "Your Call number: ";
             colorWHITE();
             int index;
             while (1)
@@ -364,7 +350,7 @@ void BingoGuest::PlayGame()
                 cout << "\t O" << endl
                      << endl;
             }
-            displayC(matrix1);
+            display(matrix1);
 
             // Computer --> HIDDEN
             for (int j = 0; j < 5; j++)
@@ -381,7 +367,7 @@ void BingoGuest::PlayGame()
             // display(matrix2);
 
             // Deleting the called number so that it cannot be called again..
-            auto it2 = std::find(calledNumbers.begin(), calledNumbers.end(), calling);
+            auto it2 = find(calledNumbers.begin(), calledNumbers.end(), calling);
             if (it2 != calledNumbers.end())
             {
                 calledNumbers.erase(it2);
@@ -399,7 +385,7 @@ void BingoGuest::PlayGame()
 
                 delay();
                 colorPink();
-                cout << "Number: " << calledNumber << " called!" << endl;
+                cout << "Computer: " << calledNumber << " called!" << endl;
                 colorWHITE();
 
                 // Now handle the called number as usual
@@ -467,7 +453,7 @@ void BingoGuest::PlayGame()
                 cout << "\t O" << endl
                      << endl;
             }
-            displayC(matrix1);
+            display(matrix1);
 
             // Computer --> HIDDEN
             // for(int j=0; j<5; j++){
