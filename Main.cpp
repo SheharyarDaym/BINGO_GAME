@@ -1,5 +1,6 @@
 #include<iostream>
 #include<conio.h>
+#include<string>
 #include<chrono>
 #include<ctime>
 #include<Windows.h>
@@ -28,6 +29,7 @@ void resetTextColor();
 void Time();
 void pressAnyKeyToContinue();
 int integerValidation(int &number);
+bool AreYouSure();
 
 
 int main()
@@ -90,9 +92,15 @@ int main()
             BingoGuest b;
         }
         else if(choice == 6){
-            cout << "Exiting..." << endl;
+            if(AreYouSure() == true){
+                colorGreen();
+                cout << "Exiting..." << endl;
+                resetTextColor();
+            }
+            else
+                choice = 7;
         }
-        else{
+        else {
             cout << "Invalid choice. Please try again." << endl;
         }
         
@@ -260,15 +268,6 @@ int integerValidation(int &number)
     }
 
 
-/*
-
-cout << "---------\n";
-        // userManager.logIn();
-        if(userManager.logIn() == true){
-            // userManager.displayScore();
-            cout << "-----------------" << endl;
-            PlayGame();
-        }*/
 
 void readFileAndPrint(const string& filename) {
     colorCyan();
@@ -284,5 +283,76 @@ void readFileAndPrint(const string& filename) {
     }
 
     file.close(); 
+
     resetTextColor();
+}
+
+bool AreYouSure(){
+    system("cls");
+    cout << "\a";
+    colorBurgundy();
+    cout << "\n\t\t\t\t\t\t   +--------------+" << endl; 
+    // colorGreen();
+    cout << "\t\t\t\t\t  "; 
+    // resetTextColor();
+    // colorGreen(); 
+    cout << "";
+    // colorBurgundy();
+    cout << "\t   |"; 
+    colorGreen(); 
+    cout <<" ARE YOU SURE ";
+    colorBurgundy(); 
+    cout << "|" << endl;
+    cout << "\t\t\t\t\t\t   +--------------+" << endl << endl;
+
+    //----------------------------------------------
+
+    // colorBurgundy();
+    cout << "\n\t\t\t\t\t   +---------+"  << "\t\t+---------+"<< endl; 
+    // colorGreen();
+    cout << "\t\t\t\t  "; 
+    cout << "\t   |"; 
+    colorGreen();
+    cout <<"   YES ";
+    // resetTextColor();
+    // colorGreen(); 
+    // colorBurgundy();
+    // colorGreen(); 
+    colorBurgundy(); 
+    cout << "  |";
+    cout << "\t"; 
+    cout << "\t|"; 
+    colorGreen();
+    cout <<"   NO   ";
+    colorBurgundy(); 
+    cout << " |";
+
+    cout << "\n\t\t\t\t\t   +---------+";
+    cout << "\t\t+---------+";
+    resetTextColor();
+
+    while(1){
+
+        string check;
+        colorBlue();
+        cout << "\nEnter here: ";
+        colorCyan();
+        cin >> check;
+        transform(check.begin(), check.end(), check.begin(), ::tolower);
+        if(check == "yes"){
+            system("cls");
+            return true;
+        }
+        else if(check == "no"){
+            system("cls");
+            return false;
+        }
+        else{
+            colorRed();
+            cout << "Please write yes or no! " << endl;
+        }
+        resetTextColor();
+
+    }
+
 }
