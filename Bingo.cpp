@@ -2,7 +2,7 @@
 #include "UserInfo.hh"
 #include <conio.h>
 #include <windows.h>
-#include<limits>
+#include <limits>
 
 void Bingo::pressAnyKeyToContinue()
 {
@@ -110,7 +110,7 @@ void Bingo::colorWHITE()
 {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, FOREGROUND_GREEN | FOREGROUND_INTENSITY);
-    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE); // Reset to default color
+    SetConsoleTextAttribute(hConsole, FOREGROUND_RED | FOREGROUND_GREEN | FOREGROUND_BLUE); 
 }
 
 // Functions
@@ -128,8 +128,8 @@ void Bingo::RandomNumberGenerator(int *arr)
 void Bingo::Password(string& p){
 
     char ch;
-    while ((ch = getch()) != '\r') {  // '\r' is the carriage return character (Enter key)
-        if (ch == '\b') {  // Handle backspace
+    while ((ch = getch()) != '\r') {  // '\r' is the carriage return character
+        if (ch == '\b') {  
             if (!p.empty()) {
                 cout << "\b \b";  // Move cursor back, print space, and move back again
                 p.pop_back();
@@ -200,31 +200,30 @@ void Bingo::displayScore()
     }
 }
 
-void Bingo::displayC(int arr[][5])
-{
-    for (int i = 0; i < 5; i++)
-    {
-        cout << "\t\t\t\t\t";
-        for (int j = 0; j < 5; j++)
-        {
-            if (arr[i][j] == 0)
-            {
-                colorRed();
-                cout << setw(4) << right << "X";
-                colorWHITE();
-            }
+// void Bingo::displayC(int arr[][5])
+// {
+//     for (int i = 0; i < 5; i++)
+//     {
+//         cout << "\t\t\t\t\t";
+//         for (int j = 0; j < 5; j++)
+//         {
+//             if (arr[i][j] == 0)
+//             {
+//                 colorRed();
+//                 cout << setw(4) << right << "X";
+//                 colorWHITE();
+//             }
 
-            else
-            {
-                colorCyan();
-                cout << setw(4) << right << arr[i][j];
-                colorWHITE();
-            }
-        }
-        cout << endl
-             << endl;
-    }
-}
+//             else
+//             {
+//                 colorCyan();
+//                 cout << setw(4) << right << arr[i][j];
+//                 colorWHITE();
+//             }
+//         }
+//         cout << endl << endl;
+//     }
+// }
 
 void Bingo::display(int arr[][5])
 {
@@ -247,13 +246,13 @@ void Bingo::display(int arr[][5])
             }
             // else cout << setw(4) << right << arr[i][j];
         }
-        cout << endl
-             << endl;
+        cout << endl << endl;
     }
 }
 
 void Bingo::delay()
 {
+    colorGreen();
     cout << "Loading";
     for (int i = 0; i < 3; i++)
     {
@@ -261,6 +260,7 @@ void Bingo::delay()
         Sleep(500);
     }
     cout << endl;
+    colorWHITE();
 }
 
 void Bingo::beepDelay()
@@ -412,6 +412,8 @@ void Bingo::playAgain()
          << endl;
 }
 
+
+
 // Constructor
 Bingo::Bingo() : userManager("users.txt")
 {
@@ -557,7 +559,7 @@ void Bingo::PlayGame()
         {
             int calling;
             colorPink();
-            cout << "Call number: ";
+            cout << "Your Call number: ";
             colorWHITE();
             int index;
             while (1)
@@ -638,7 +640,7 @@ void Bingo::PlayGame()
                 cout << "\t O" << endl
                      << endl;
             }
-            displayC(matrix1);
+            display(matrix1);
 
             // Computer --> HIDDEN
             for (int j = 0; j < 5; j++)
@@ -655,7 +657,7 @@ void Bingo::PlayGame()
             // display(matrix2);
 
             // Deleting the called number so that it cannot be called again..
-            auto it2 = std::find(calledNumbers.begin(), calledNumbers.end(), calling);
+            auto it2 = find(calledNumbers.begin(), calledNumbers.end(), calling);
             if (it2 != calledNumbers.end())
             {
                 calledNumbers.erase(it2);
@@ -673,7 +675,7 @@ void Bingo::PlayGame()
 
                 delay();
                 colorPink();
-                cout << "Number: " << calledNumber << " called!" << endl;
+                cout << "Computer: " << calledNumber << " called!" << endl;
                 colorWHITE();
 
                 // Now handle the called number as usual
@@ -741,7 +743,7 @@ void Bingo::PlayGame()
                 cout << "\t O" << endl
                      << endl;
             }
-            displayC(matrix1);
+            display(matrix1);
 
             // Computer --> HIDDEN
             // for(int j=0; j<5; j++){
@@ -789,7 +791,7 @@ void Bingo::PlayGame()
             score += 1;
             userManager.updateScore(user, score);
             displayScore();
-            score -= 1;    // To make score again zero because of playAgain function
+            score -= 1;
             pressAnyKeyToContinue();
             system("cls");
             break;
@@ -825,7 +827,7 @@ void Bingo::PlayGame()
             userManager.updateScore(user, score);
             // userManager.getUserScore("user");
             displayScore();
-            score -= 2; // To make score again zero because of playAgain function
+            score -= 2; 
             pressAnyKeyToContinue();
             system("cls");
             break;
