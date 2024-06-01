@@ -222,7 +222,7 @@ void UserManager::displayLoadingBar()
         if(progress != totalSteps){
             Sleep(100); 
             
-            cout << "\r[Loading] [" << std::string(20, ' ') << "] ";
+            cout << "\r[Loading] [" << string(20, ' ') << "] ";
             cout.flush(); 
         }
         
