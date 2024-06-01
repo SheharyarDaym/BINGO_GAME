@@ -2,6 +2,7 @@
 #include "UserInfo.hh"
 #include <conio.h>
 #include <windows.h>
+#include<limits>
 
 void Bingo::pressAnyKeyToContinue()
 {
@@ -785,9 +786,10 @@ void Bingo::PlayGame()
                  << "\t\t\t\t\tBBBBB   IIIIII  N   NN   GGGG    OOOO " << endl
                  << endl;
             colorWHITE();
-            score = score + 1;
+            score += 1;
             userManager.updateScore(user, score);
             displayScore();
+            score -= 1;    // To make score again zero because of playAgain function
             pressAnyKeyToContinue();
             system("cls");
             break;
@@ -818,11 +820,12 @@ void Bingo::PlayGame()
                  << "\t\t\t\t\tBBBBB   IIIIII  N   NN   GGGG    OOOO " << endl
                  << endl;
             colorWHITE();
-            score = score + 2;
+            score += 2;
             // cout << "Updating score for user: " << user << endl;
             userManager.updateScore(user, score);
             // userManager.getUserScore("user");
             displayScore();
+            score -= 2; // To make score again zero because of playAgain function
             pressAnyKeyToContinue();
             system("cls");
             break;
@@ -884,3 +887,7 @@ void Bingo::displayLoadingBar()
     }
     cout << endl;
 }
+
+
+
+
