@@ -318,14 +318,6 @@ void BingoGuest::PlayGame()
                 cout << "\t I \t N \t G \t O" << endl
                      << endl;
             }
-            if (check == 0)
-            {
-                colorGreen();
-                cout << "\t\t\t\t  B ";
-                cout << "\t I \t N \t G \t O" << endl
-                     << endl;
-                colorWHITE();
-            }
             if (checkBingo(matrix1) == 2)
             {
                 colorBurgundy();
@@ -333,14 +325,24 @@ void BingoGuest::PlayGame()
                 colorGreen();
                 cout << "\t N \t G \t O" << endl
                      << endl;
+                check = 1;
             }
             if (checkBingo(matrix1) == 3)
             {
+                check = 1;
                 colorBurgundy();
                 cout << "\t\t\t\t  X \t X \t X ";
                 colorGreen();
                 cout << "\t G \t O" << endl
                      << endl;
+            }
+            if (check == 0)
+            {
+                colorGreen();
+                cout << "\t\t\t\t  B ";
+                cout << "\t I \t N \t G \t O" << endl
+                     << endl;
+                colorWHITE();
             }
             if (checkBingo(matrix1) == 4)
             {
@@ -421,14 +423,6 @@ void BingoGuest::PlayGame()
                 cout << "\t I \t N \t G \t O" << endl
                      << endl;
             }
-            if (check == 0)
-            {
-                colorGreen();
-                cout << "\t\t\t\t  B ";
-                cout << "\t I \t N \t G \t O" << endl
-                     << endl;
-                colorWHITE();
-            }
             if (checkBingo(matrix1) == 2)
             {
                 colorBurgundy();
@@ -436,6 +430,7 @@ void BingoGuest::PlayGame()
                 colorGreen();
                 cout << "\t N \t G \t O" << endl
                      << endl;
+                check = 1;
             }
             if (checkBingo(matrix1) == 3)
             {
@@ -444,6 +439,15 @@ void BingoGuest::PlayGame()
                 colorGreen();
                 cout << "\t G \t O" << endl
                      << endl;
+                check = 1;
+            }
+            if (check == 0)
+            {
+                colorGreen();
+                cout << "\t\t\t\t  B ";
+                cout << "\t I \t N \t G \t O" << endl
+                     << endl;
+                colorWHITE();
             }
             if (checkBingo(matrix1) == 4)
             {
